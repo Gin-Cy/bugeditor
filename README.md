@@ -1,7 +1,11 @@
 # 配置和安装
 ## 环境
 
-Django-1.10.8  python2.7    Wndows/Mac
+Django-1.10.8  
+
+python2.7    
+
+Wndows/Mac
 
 ## 安装
 python –m pip install –r requirements.txt
@@ -21,7 +25,9 @@ LDFLAGS=-L/usr/local/opt/openssl/lib pip install mysql-python
 建库
 
 本地mysql需要新建配置文件中的数据库
+
 settings.py文件：
+
 DATABASES = {
     'default':{
      'ENGINE':'django.db.backends.mysql',
@@ -37,8 +43,11 @@ DATABASES = {
 }
 
 ## 建表
+
 cd myweb01
+
 python manage.py  makemigrations
+
 python manage.py migrate
 
 ## 启服务
