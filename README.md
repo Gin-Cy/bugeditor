@@ -10,11 +10,12 @@ Wndows/Mac
 ## 安装
 python –m pip install –r requirements.txt
 
-### 说明
-Mac下安装mysql以及MySQL-python
+#### Mac下安装mysql以及MySQL-python
 
 brew install mysql
+
 pip install MySQL-python
+
 
 如果第二条安装出现"Failed building wheel for mysql-python"错误，则采用以下方法
 
@@ -28,7 +29,9 @@ LDFLAGS=-L/usr/local/opt/openssl/lib pip install mysql-python
 
 settings.py文件：
 
-DATABASES = {
+
+`DATABASES = {`
+
     'default':{
      'ENGINE':'django.db.backends.mysql',
      'HOST':'127.0.0.1',
@@ -40,7 +43,8 @@ DATABASES = {
          'init_command':"SET sql_mode='STRICT_TRANS_TABLES'"
      },
     }
-}
+
+`}`
 
 ## 建表
 
