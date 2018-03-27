@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>新建漏洞</title>
+</head>
+<body>
+<p><a href ="{%url 'blog:project_view' project.id%}">返回项目首页</a></p>
+<h2>漏洞详情</h2>
+<h3>{{bug.b_name}}</h3>
+<h3>风险等级</h3>
+{{bug.b_level}}
+<h3>测试详情</h3>
+{% autoescape off %} 
+{{bug.b_details}}
+ {% endautoescape %}
+<h3>风险分析</h3>
+{{bug.b_risk}}<br>
+{{bug.b_url}}<br>
+<h3>修复建议</h3>
+{{bug.b_repair}}
+</body>
+</html>

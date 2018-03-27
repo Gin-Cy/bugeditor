@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title></title>
+</head>
+<body>
+<script>
+function del() {
+var msg = "确定要删除吗？\n\n请确认！";
+if (confirm(msg)==true){
+return true;
+}else{
+return false;
+}
+}
+</script>
+<h2>项目详情</h2>
+<h4>项目名称：{{project.p_name}}</h4>
+<caption><b>漏洞详情</b></caption>
+<hr align="left" width="80" />
+<table>
+<tr>
+<td><b>漏洞名称</b></td>
+<td><b>漏洞等级</b></td>
+<td><b>漏洞详情</b></td>
+<td><b>漏洞删除</b></td>
+</tr>
+{%for bug in bugs%}
+<tr>
+<td>{{bug.b_name}}</td>
+<td>{{bug.b_level}}</td>
+<td><a href ="{%url 'blog:bug_view' bug.id%}">漏洞详情</a></td></td>
+<td><a href ="{%url 'blog:bug_del' bug.id%}" onclick="javascript: return del();">漏洞删除</a></td></td>
+</tr>
+{%endfor%}
+</table>
+<br />
+<ins><a href ="{%url 'blog:bug_add' project.id%}">新建漏洞</a></ins>
+
+
+
+</body>
+</html>

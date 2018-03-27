@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<head>
+<title>Site administration | Django site admin</title>
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/css/dashboard.css" />
+
+
+<meta name="robots" content="NONE,NOARCHIVE" />
+</head>
+<body class=" dashboard"
+  data-admin-utc-offset="0">
+     
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+        
+<h1 id="site-name"><a href="/admin/">项目统计系统</a></h1>
+
+        </div>
+        <div id="user-tools">      
+                <a href ="/blog/work/">返回工作项目</a>          
+                 
+        </div>  
+    </div>
+
+<script>
+function del() {
+var msg = "确定要删除吗？\n\n请确认！";
+if (confirm(msg)==true){
+return true;
+}else{
+return false;
+}
+}
+</script>
+
+ <div id="content" class="colMS">   
+ <h1>项目详情</h1>
+
+<div class="app-auth module" style="width:680px;">
+
+<table style="width:680px;">
+<caption><h1>{{project.p_name}}</h1></caption>
+<tr class="model-group">
+<td><b>漏洞名称</b></td>
+<td><b>漏洞等级</b></td>
+<td><b>漏洞详情</b></td>
+<td><b>漏洞删除</b></td>
+</tr>
+{%for bug in bugs%}
+<tr>
+<td>{{bug.b_name}}</td>
+<td>{{bug.b_level}}</td>
+<td><a href ="{%url 'blog:bug_view' bug.id%}">漏洞编辑</a></td></td>
+<td><a href ="{%url 'blog:bug_del' bug.id%}" onclick="javascript: return del();">漏洞删除</a></td></td>
+</tr>
+{%endfor%}
+</table>
+</div>
+
+<br />
+<form action="{%url 'blog:bug_add' project.id%}" method="POST">
+<b>漏洞模板：</b>{{form.bug}} 
+<input type="submit" value="新建漏洞">
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Site administration | Django site admin</title>
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/css/dashboard.css" />
+
+
+<meta name="robots" content="NONE,NOARCHIVE" />
+</head>
+<body class=" dashboard"
+  data-admin-utc-offset="0">
+     
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+        
+<h1 id="site-name"><a href="/admin/">项目统计系统</a></h1>
+
+        </div>
+        <div id="user-tools">   
+                made by,
+                <strong>Adble</strong>.    
+                <a href="/">帮助</a>           
+                 
+        </div>  
+    </div>
+<script>
+function del() {
+var msg = "确定要删除吗？\n\n请确认！";
+if (confirm(msg)==true){
+return true;
+}else{
+return false;
+}
+}
+</script>
+ <div id="content" class="colMS">
+        
+ <h1>工作首页</h1>
+        
+
+<div id="content-main">
+    <div class="app-auth module" style="width:680px;">
+
+    <table style="width:680px;">
+        <caption><h1>Project</h1></caption>
+    <tr  class="model-group">
+    <td scope="row"><b>项目名称</b></td>
+    <td><b>项目时间</b></td>
+    <td><b>项目负责人</b></td>
+    <td><b>项目详情</b></td>
+    <td><b>删除项目</b></td>
+    <td><b>导出报告</b></td>
+    </tr>
+    {%for project in projects%}
+    <tr class="model-user">
+    <td scope="row">{{project.p_name}}</td>
+    <td>{{project.p_time}}</td>
+    <td>{{project.p_charge}}</td>
+    <td><a href ="{%url 'blog:project_view' project.id%}">项目详情</a></td>
+    <td><a href ="{%url 'blog:project_del' project.id%}" onclick="javascript: return del();" >删除项目</a></td>
+    <td><a href ="{%url 'blog:project_word' project.id%}">导出报告</a></td>
+    </tr>
+    {%endfor%}
+    </table>
+    </div>
+</div>
+
+<br />
+<ins><a href ="/blog/project_add">新建项目</a></ins>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+Django==1.10.1
+MySQL-python
+python-docx
+beautifulsoup4
+django-ckeditor
+requests
+pillow

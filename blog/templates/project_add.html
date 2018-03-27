@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Site administration | Django site admin</title>
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/css/dashboard.css" />
+
+
+<meta name="robots" content="NONE,NOARCHIVE" />
+</head>
+<body class=" dashboard"
+  data-admin-utc-offset="0">
+     
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+        
+<h1 id="site-name"><a href="/admin/">项目统计系统</a></h1>
+
+        </div>
+        <div id="user-tools">   
+                madeby,
+                <strong>常颍</strong>.    
+                <a href="/">帮助</a>           
+                 
+        </div>  
+    </div>
+ <div id="content" class="colMS">
+        
+<h1>新建项目</h1>
+        
+<form action='/blog/project_add/' method='POST'>
+项目名称：{{form.p_name}} <br/>
+项目时间：{{form.p_time}} <br/>
+项目负责：{{form.p_charge}} <br/>
+
+ <div class='fieldWrapper'> <p><input type='submit' value='提交'></p></div>
+</form>
+
+
+<div>
+</body>
+</html>

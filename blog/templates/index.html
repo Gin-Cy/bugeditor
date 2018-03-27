@@ -1,0 +1,50 @@
+
+{%for article in articles%}
+<a href ="{%url 'blog:article_page' article.id%}">{{article.title}}</a>
+
+{%endfor%}  
+
+<form action="/blog/projects_view/" name="myform" method="post">  
+
+<input type="text" name="content" />
+ <input type="submit"  value="提交数据"/>  
+</form>
+<html>
+<head>
+<title>image upload &mdash; CKEditor Sample</title>
+<meta charset="utf-8">
+
+
+<script type="text/javascript" src="\static\js2\ckeditor_4.8.0\ckeditor\ckeditor.js"></script>
+</head>
+<body>
+<form method="post" action="/blog/projects_view/">
+<p>
+  <textarea class="ckeditor" cols="80" id="ckeditor" name="content"  
+            rows="10">     
+        </textarea>  
+        
+ <script>
+
+            CKEDITOR.replace('ckeditor', {
+                language: 'zh-cn',
+                //粘贴图片请求路径
+                uploadUrl : '../uploadPaste/',
+                //上传图片请求url
+                filebrowserImageUploadUrl: '../uploadEditor/',
+                
+              
+            });
+      
+  
+        </script>
+ 
+    </p>
+    <p>
+        <input type="submit" value="Submit">
+    </p>
+    </form>
+</body>
+</html>
+
+{{name}}

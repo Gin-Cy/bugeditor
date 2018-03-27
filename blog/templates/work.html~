@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title></title>
+</head>
+<body>
+<table>
+<tr>
+<td><b>项目名称</b></td>
+<td><b>项目时间</b></td>
+<td><b>项目负责人</b></td>
+<td><b>项目详情</b></td>
+<td><b>删除项目</b></td>
+<td><b>导出报告</b></td>
+</tr>
+{%for project in projects%}
+<tr>
+<td>{{project.p_name}}</td>
+<td>{{project.p_time}}</td>
+<td>{{project.p_charge}}</td>
+<td><a href ="{%url 'blog:project_view' project.id%}">项目详情</a></td>
+<td><a href ="{%url 'blog:project_del' project.id%}">删除项目</a></td>
+<td><a href ="">导出报告</a></td>
+</tr>
+{%endfor%}
+</table>
+<br />
+<ins><a href ="{%url 'blog:project_add'">项目详情</a></ins>
+
+
+
+</body>
+</html>

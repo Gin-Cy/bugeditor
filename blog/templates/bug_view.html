@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Site administration | Django site admin</title>
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/css/dashboard.css" />
+<meta name="robots" content="NONE,NOARCHIVE" />
+<script type="text/javascript" src="\static\js2\ckeditor_4.8.0\ckeditor\ckeditor.js"></script>
+</head>
+<meta name="robots" content="NONE,NOARCHIVE" />
+</head>
+<body class=" dashboard"
+  data-admin-utc-offset="0">
+     
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+        
+<h1 id="site-name"><a href="/admin/">项目统计系统</a></h1>
+
+        </div>
+        <div id="user-tools">      
+                <a href ="{%url 'blog:project_view' project.id%}">返回项目首页</a>          
+                 
+        </div>  
+   </div>
+<div id="content" class="colMS">  
+<h1>漏洞编辑</h1>
+<div id="content-main" style="height:700px;width:680px;"> 
+<form action="{%url 'blog:bug_view' bug.id%}" method="POST">
+        <fieldset>
+                <legend contenteditable="true" >~~</legend>
+                <label contenteditable="true" >漏洞名称</label>
+                <input type="text" placeholder="" value={{bug.b_name}} name="b_name" >
+                <label contenteditable="true" >漏洞风险</label>
+                <input type="text" placeholder="" name="b_risk" value={{bug.b_risk}} >
+                
+        </fieldset>
+        <fieldset>
+                <legend contenteditable="true">~~</legend>
+                <label contenteditable="true">风险等级</label>
+                <input type="text" placeholder="" name="b_level" value={{bug.b_level}} >
+                <label contenteditable="true">问题链接</label>
+                <input type="text" placeholder="" name="b_url" value={{bug.b_url}} >
+            
+        </fieldset>
+        </fieldset>
+                <legend contenteditable="true"><br><b>漏洞详情：<b></legend>
+              <textarea class="ckeditor" cols="80" id="ckeditor" name="content" rows="10">{{bug.b_details}}</textarea>  
+        
+        <script>
+
+            CKEDITOR.replace('ckeditor', {
+                language: 'zh-cn',
+                //粘贴图片请求路径
+                uploadUrl : '../uploadPaste/',
+                //上传图片请求url
+                filebrowserImageUploadUrl: '../uploadEditor/',
+                
+              
+            });
+      
+  
+        </script>
+ 
+        </fieldset>
+        <fieldset>
+                <legend contenteditable="true">~~</legend>
+                <label contenteditable="true">修复建议</label>
+                <input type="text" placeholder="" name="b_repair" value={{bug.b_repair}} >
+
+        </fieldset>
+        <p>
+        <input type="submit" value="提交漏洞">
+    </p>
+</form>
+
+
+
+
+</body>
+</html>
